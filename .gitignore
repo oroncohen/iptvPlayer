@@ -1,0 +1,15 @@
+.DS_Store
+.gotoolchain/
+node_modules/
+dist/
+public/
+iptvplayer
+*.app/
+*.pkg
+*.log
+.env
+.env.*
+!.env.example
+history.json
+favorites.json
+cache/

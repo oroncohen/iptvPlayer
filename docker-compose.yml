@@ -1,0 +1,17 @@
+services:
+  iptv-player:
+    build: .
+    image: iptv-player
+    container_name: iptv-player
+    restart: unless-stopped
+    ports:
+      # Bound to localhost only: the server has no login, and it holds your
+      # playlist URLs (which usually contain your provider credentials).
+      # To reach it from other devices on your network, change to
+      # "${IPTV_PORT:-62626}:4568" -- only do that on a network you trust.
+      - "127.0.0.1:${IPTV_PORT:-62626}:4568"
+    volumes:
+      - iptv-data:/data   # playlist history + cached channel lists
+
+volumes:
+  iptv-data:
